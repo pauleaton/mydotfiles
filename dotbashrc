@@ -1,0 +1,96 @@
+# Environment
+export SSH_PRIVATE_KEY="~/.ssh/id_rsa"
+
+# Aliases
+
+# CWS
+alias cdcws='cd ~/workspace/CWS'
+alias cdve='cd ~/workspace/CWS/venv && source ./bin/activate'
+alias ggs='gg sync'
+
+# General
+alias hist='history 20'
+alias githist='history | grep git'
+alias bashrc='source ~/.bashrc'
+alias dds='find . -name .DS_Store | xargs rm -f'
+alias dpyc='find . -name *.pyc | xargs rm -f'
+alias ffxg='find . -type f | xargs grep'
+
+alias cdgit='cd ~/workspace/github'
+alias cdp='cd ~-'
+alias cd2='cd ../..'
+alias cd3='cd ../../..'
+alias cd4='cd ../../../..'
+alias cd5='cd ../../../../..'
+alias cd6='cd ../../../../../..'
+
+alias ll='ls -l'
+alias la='ls -la'
+
+alias clip='pbcopy'
+alias pclip='pbpaste'
+
+# MySQL
+alias mysql='/usr/local/mysql/bin/mysql'
+alias mysqladmin='/usr/local/mysql/bin/mysqladmin'
+
+# GIT
+alias gitst='git status'
+alias gitad='git add *'
+alias gitcm='git commit -a -m'
+alias gitpl='git pull'
+alias gitpu='git push'
+alias gitbr='git branch'
+alias gitco='git checkout'
+alias gitlg='git log --graph'
+alias gitrh='git reset --hard'
+alias gitch='history | grep "git commit"'
+
+# VirtualEnv
+alias venv='virtualenv .'
+alias vact='. ./bin/activate'
+alias ved='deactivate'
+
+# Vagrant
+alias vup='vagrant up'
+alias vsh='vagrant ssh'
+alias vst='vagrant status'
+alias vht='vagrant halt'
+alias vds='vagrant destroy'
+
+# Subversion
+alias svnst='svn status'
+alias svnud='svn update'
+
+# AWS
+alias sshj='ssh -i ~/workspace/AWS/paul-admin.pem ec2-user@52.18.175.98'
+
+function crbeef {
+    # export AWS_DEFAULT_PROFILE="default"
+    export AWS_ACCESS_KEY_ID=""
+    export AWS_SECRET_ACCESS_KEY=""
+    export AWS_KEYPAIR_NAME="pe_id_rsa"
+    export SSH_PRIVATE_KEY="~/.ssh/id_rsa"
+}
+
+alias s3='aws s3'
+alias ec2='aws ec2'
+
+# Other stuff
+ssh-add ~/.ssh/pe_rsa
+ssh-add ~/.ssh/id2_rsa
+
+function color_my_prompt {
+    local __user_and_host="\[\033[01;33m\]\u@\h"
+    # local __cur_location="\[\033[01;33m\]\w"
+    local __cur_location="\[\033[33m\]\w"
+    local __git_branch_color="\[\033[32m\]"
+    local __git_branch='`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`'
+    local __prompt_tail="\[\033[37m\]$"
+    local __last_color="\[\033[00m\]"
+    # export PS1="$__user_and_host $__cur_location $__git_branch_color$__git_branch$__prompt_tail$__last_color "
+    export PS1="$__cur_location $__git_branch_color$__git_branch$__prompt_tail$__last_color "
+}
+color_my_prompt
+
+set -o vi
