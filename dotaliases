@@ -1,0 +1,81 @@
+#!/bin/bash
+
+# CWS
+alias cdjcd='cd ~/workspace/JCD/github'
+alias cdve='cd ~/workspace/JCD/venv && source ./bin/activate'
+alias ggs='gg sync'
+
+# General
+alias cdaws='cd ~/workspace/AWS'
+alias hist='history 20'
+alias githist='history | grep git'
+alias bashrc='vim ~/.bashrc && source ~/.bashrc'
+alias dds='find . -name .DS_Store | xargs rm -f'
+alias dpyc='find . -name *.pyc | xargs rm -f'
+alias ffxg='find . -type f | xargs grep'
+alias fire='/Applications/Firefox.app/Contents/MacOS/firefox-bin -P'
+alias gps1='color_my_prompt'
+alias kps1='PS1="$(kube_ps1)$ "'
+
+alias cdgit='cd ~/workspace/github'
+alias cdp='cd ~-'
+alias cd2='cd ../..'
+alias cd3='cd ../../..'
+alias cd4='cd ../../../..'
+alias cd5='cd ../../../../..'
+alias cd6='cd ../../../../../..'
+
+alias ll='ls -l'
+alias la='ls -la'
+
+alias clip='pbcopy'
+alias pclip='pbpaste'
+
+# MySQL
+alias mysql='/usr/local/mysql/bin/mysql'
+alias mysqladmin='/usr/local/mysql/bin/mysqladmin'
+
+# GIT
+alias gitst='git status'
+alias gitad='git add *'
+alias gitac='git commit -a -m'
+alias gitcm='git commit'
+alias gitpl='git pull'
+alias gitpu='git push'
+alias gitbr='git branch'
+alias gitco='git checkout'
+alias gitcom='git checkout master'
+alias gitcot='git checkout --track'
+alias gitlg='git log --graph'
+alias gitrh='git reset --hard'
+alias gitch='history | grep "git commit"'
+
+# VirtualEnv
+alias venv='virtualenv .'
+alias vact='. ./bin/activate'
+alias ved='deactivate'
+
+# Vagrant
+alias vup='vagrant up'
+alias vsh='vagrant ssh'
+alias vli='cdjcd; vsh'
+alias vst='vagrant status'
+alias vht='vagrant halt'
+alias vds='vagrant destroy'
+
+# Docker
+alias dk='docker'
+# alias drmc='docker container ls -a | grep -v CONT | awk '{ print $1 }' | while read x; do docker container rm $x; done'
+# alias drmi='docker images | grep -v TAG | awk '{ print $3 }' | while read x; do docker image rm $x; done'
+
+# k8s
+alias kk="kubectl"
+alias kgc="kubectl get --output json pods | jq --raw-output '.items[].spec.containers[].name' -n"
+
+# AWS
+alias awsacc='aws sts get-caller-identity --output text --query "Account"'
+
+# Subversion
+alias svnst='svn status'
+alias svnud='svn update'
+
